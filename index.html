@@ -11,17 +11,26 @@
         <div class="header-left">
             <p class="gradient-text">Tylerwcodes.com</p>
         </div>
-        <div class="header-middle">
-            <ul>
-                <li><a href="#certs">Certifications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-            </ul>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-collapse">
+            <div class="header-middle">
+                <ul>
+                    <li><a href="#certs">Certifications</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About Me</a></li>
+                </ul>
+            </div>
         </div>
         <div class="header-right">
-            <button class="header-contact">Contact</button>
+            <a class="header-contact" href="CodingResume.pdf" target="_blank" rel="noopener">Resume</a>
         </div>
+        <div class="menu-overlay"></div>
     </header>
     <main>
         <section id="landing">
@@ -31,8 +40,8 @@
                     <p class="name gradient-text">Tyler Weeks</p>
                 </div>
                 <div class="landing-left-t2">
-                    <p>I'm a <span class="white">coding</span> and <span class="white">cybersecurity</span></p>
-                    <p>professional, looking to join your team.</p>
+                    <p>I'm an <span class="typed-word" id="typed-word"></span><span class="cursor">|</span></p>
+                    <p>looking to join your team.</p>
                 </div>
             </div>
             <div class="landing-right">
@@ -47,51 +56,74 @@
         <section id="certs">
             <div class="certs-title">
                 <h2 class="gradient-text">Certifications</h2>
+                <p class="certs-subtitle">Industry-recognized credentials backing the work.</p>
             </div>
-            <div class="certs-info">
-                <div class="certs-aplus">
-                    <div class="certs-aplus-title">
-                        <h3>CompTIA A+</h3>
+            <div class="certs-marquee">
+                <div class="certs-track">
+                    <div class="cert-item">
+                        <img src="aplus.webp" alt="CompTIA A+ certification">
+                        <div class="cert-meta">
+                            <h3>CompTIA A+</h3>
+                            <span class="cert-code">220-1201 &amp; 1202</span>
+                        </div>
                     </div>
-                    <div class="certs-aplus-img">
-                        <img src="aplus.webp" alt="comptia a+ certification">
+                    <div class="cert-item">
+                        <img src="netplus.png" alt="CompTIA Network+ certification">
+                        <div class="cert-meta">
+                            <h3>CompTIA Network+</h3>
+                            <span class="cert-code">N10-009</span>
+                        </div>
                     </div>
-                    <div class="certs-aplus-version">
-                        <h3>220-1201 & 1202</h3>
+                    <div class="cert-item">
+                        <img src="secplus.png" alt="CompTIA Security+ certification">
+                        <div class="cert-meta">
+                            <h3>CompTIA Security+</h3>
+                            <span class="cert-code">SY0-701</span>
+                        </div>
                     </div>
-                </div>
-                <div class="certs-netplus">
-                    <div class="certs-netplus-title">
-                        <h3>CompTIA Network+</h3>
+                    <div class="cert-item">
+                        <img src="az900.png" alt="Microsoft Azure Fundamentals certification" onerror="this.onerror=null;this.src='secplus.png'">
+                        <div class="cert-meta">
+                            <h3>Microsoft Azure Fundamentals</h3>
+                            <span class="cert-code">AZ-900</span>
+                        </div>
                     </div>
-                    <div class="certs-netplus-img">
-                        <img src="netplus.png" alt="comptia network+ certification">
+                    <!-- duplicate set for a seamless loop -->
+                    <div class="cert-item" aria-hidden="true">
+                        <img src="aplus.webp" alt="">
+                        <div class="cert-meta">
+                            <h3>CompTIA A+</h3>
+                            <span class="cert-code">220-1201 &amp; 1202</span>
+                        </div>
                     </div>
-                    <div class="certs-netplus-version">
-                        <h3>N10-009</h3>
+                    <div class="cert-item" aria-hidden="true">
+                        <img src="netplus.png" alt="">
+                        <div class="cert-meta">
+                            <h3>CompTIA Network+</h3>
+                            <span class="cert-code">N10-009</span>
+                        </div>
                     </div>
-                </div>
-                <div class="certs-secplus">
-                    <div class="certs-secplus-title">
-                        <h3>CompTIA Security+</h3>
+                    <div class="cert-item" aria-hidden="true">
+                        <img src="secplus.png" alt="">
+                        <div class="cert-meta">
+                            <h3>CompTIA Security+</h3>
+                            <span class="cert-code">SY0-701</span>
+                        </div>
                     </div>
-                    <div class="certs-secplus-img">
-                        <img src="secplus.png" alt="comptia security+ certification">
+                    <div class="cert-item" aria-hidden="true">
+                        <img src="az900.png" alt="" onerror="this.onerror=null;this.src='secplus.png'">
+                        <div class="cert-meta">
+                            <h3>Microsoft Azure Fundamentals</h3>
+                            <span class="cert-code">AZ-900</span>
+                        </div>
                     </div>
-                    <div class="certs-secplus-version">
-                        <h3>SY0-701</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="certs-footer">
-                <div class="certs-footer-info">
-                    <p>All certifications are up to date, and obtained during Q4 of 2025</p>
                 </div>
             </div>
         </section>
         <section id="skills">
             <div class="skills-title">
                 <h2 class="gradient-text">Skills</h2>
+                <p class="skills-subtitle">The tools I reach for to build and automate.</p>
             </div>
             <div class="skills-container">
                 <div class="skill">
@@ -99,26 +131,89 @@
                         <h4>Python</h4>
                     </div>
                     <div class="skill-info">
-                        <p>I have 5 years of experience coding in Python.</p>
-                        <p>Experienced in creating automation applications, performing data analysis, and writing scripts for multiple applications.</p>
-                        <p></p>
+                        <p>Five years writing Python across automation, data analysis, and production tooling — scripting away repetitive work, building data pipelines, and shipping database-backed applications.</p>
+                        <div class="skill-proficiency">
+                            <div class="skill-proficiency-head">
+                                <span>Proficiency</span>
+                                <span>Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>pandas</span>
+                            <span>requests</span>
+                            <span>asyncio</span>
+                            <span>sqlite3</span>
+                        </div>
+                        <div class="skill-projects">
+                            <h5>Relevant Projects</h5>
+                            <div class="skill-project-links">
+                                <a href="#clipripper">ClipRipper</a>
+                                <a href="#dashflow">DashFlow</a>
+                                <a href="#network-analyzer">Network Analyzer</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill">
                     <div class="skill-title">
-                        <h4>Front End</h4>
+                        <h4>API Automation</h4>
                     </div>
                     <div class="skill-info">
-                        <p>Can create responseive web based applications using HTML, CSS, and JavaScript.</p>
-                        <p>Created a basic responsive personal portfolio website</p>
+                        <p>Designing and integrating REST APIs and webhooks to connect disparate services into reliable, hands-off workflows — handling auth, rate limits, and error recovery end to end.</p>
+                        <div class="skill-proficiency">
+                            <div class="skill-proficiency-head">
+                                <span>Proficiency</span>
+                                <span>Advanced</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>REST</span>
+                            <span>OAuth</span>
+                            <span>webhooks</span>
+                            <span>JSON</span>
+                        </div>
+                        <div class="skill-projects">
+                            <h5>Relevant Projects</h5>
+                            <div class="skill-project-links">
+                                <a href="#clipripper">ClipRipper</a>
+                                <a href="#dashflow">DashFlow</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="skill">
                     <div class="skill-title">
-                        <h4>Networking</h4>
+                        <h4>Azure &amp; Cloud</h4>
                     </div>
                     <div class="skill-info">
-                        <p>Knowledgeable in TCP/IP, routing, and network security tools.</p>
+                        <p>Provisioning and managing cloud infrastructure, identity, and serverless services on Microsoft Azure — deploying workloads and wiring up access, backed by the AZ-900 certification.</p>
+                        <div class="skill-proficiency">
+                            <div class="skill-proficiency-head">
+                                <span>Proficiency</span>
+                                <span>Intermediate</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-bar-fill" style="width: 60%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-tags">
+                            <span>Azure AD</span>
+                            <span>Functions</span>
+                            <span>VMs</span>
+                            <span>IAM</span>
+                        </div>
+                        <div class="skill-projects">
+                            <h5>Relevant Projects</h5>
+                            <div class="skill-project-links">
+                                <a href="#dashflow">DashFlow</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -126,16 +221,62 @@
         <section id="experience">
             <div class="experience-title">
                 <h2 class="gradient-text">Experience</h2>
+                <p class="experience-subtitle">Where I've built skills and shipped work.</p>
             </div>
             <div class="experiences">
-                <div class="experience-1">
-                    <div class="experience-1-title">
-                        <h2>Rexair Rainbow (2020-2023)</h2>
-                    </div>
-                    <div class="experience-1-info">
+                <div class="experience-card">
+                    <h2>IT Technician / Automation Developer</h2>
+                    <p class="experience-company">Thomas Howell Ferguson</p>
+                    <p class="experience-date">December 2025 &ndash; Present</p>
+                    <div class="experience-info">
                         <h4>Job Overview:</h4>
-                        <p>Traveling Salesman and Demonstrator for in-home cleaning and air purification systems</p>
-                        <br>
+                        <p>Create API integrations and ETL piplines for various cloud based softwares and CRM platforms.</p>
+                        <h4>What I Do:</h4>
+                        <ul>
+                            <li>Save thousands of man hours by automating repititious tasks</li>
+                            <li>Create Bidirectional API ETL piplines that allow ERP and CRM softwares to communicate with each other</li>
+                            <li>Build Excel remapping tools for ingesting and remapping data</li>
+                            <li>Design and ship an all-in-one internal IT tool that aggregates all softwares used on a daily basis</li>
+                        </ul>
+                        <div class="experience-projects">
+                            <h5>Projects</h5>
+                            <div class="experience-project-links">
+                                <a href="https://github.com/tylerwcodes/dashflow" target="_blank" rel="noopener">DashFlow</a>
+                                <a href="https://github.com/tylerwcodes/network-analyzer" target="_blank" rel="noopener">Network Analyzer</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <h2>Python Developer</h2>
+                    <p class="experience-company">ClipRipper</p>
+                    <p class="experience-date">Summer 2025</p>
+                    <div class="experience-info">
+                        <h4>Job Overview:</h4>
+                        <p>Created a fully automated video generation and editing pipeline leveraging AI and machine learning.</p>
+                        <h4>What I Learned:</h4>
+                        <ul>
+                            <li>Database creation and management with sqlite3</li>
+                            <li>Video editing libraries such as moviepy, whisper, and ffmpeg</li>
+                            <li>Audio editing libraries such as pyannote and elevenlabs</li>
+                            <li>Working with multiple APIs including Google and Meta</li>
+                            <li>How to build, manage, and merge a pipeline while working with others</li>
+                        </ul>
+                        <div class="experience-projects">
+                            <h5>Projects</h5>
+                            <div class="experience-project-links">
+                                <a href="https://github.com/tylerwcodes/clipripper" target="_blank" rel="noopener">ClipRipper</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-card">
+                    <h2>Traveling Salesman</h2>
+                    <p class="experience-company">Rexair Rainbow</p>
+                    <p class="experience-date">September 2020 &ndash; September 2023</p>
+                    <div class="experience-info">
+                        <h4>Job Overview:</h4>
+                        <p>Traveling salesman and demonstrator for in-home cleaning and air purification systems.</p>
                         <h4>What I Learned:</h4>
                         <ul>
                             <li>The art of sales</li>
@@ -144,46 +285,11 @@
                             <li>Lead generation</li>
                             <li>How to build, work with, and manage a team</li>
                         </ul>
-                        <br>
-                        <h4>Awards & Accomodations:</h4>
+                        <h4>Awards &amp; Achievements:</h4>
                         <ul>
-                            <li>Lead Generation</li>
+                            <li>Lead generation recognition</li>
                             <li>Consistent monthly sales targets</li>
                         </ul>
-                    </div>
-                </div>
-                <div class="experience-2">
-                    <div class="experience-2-title">
-                        <h2>ClipRipper (Summer 2025)</h2>
-                    </div>
-                    <div class="experience-2-info">
-                        <h4>Job Overview:</h4>
-                        <p>Created a fully automated video generation and editing pipeline leveraging ai and machine learning</p>
-                        <br>
-                        <h4>What I Learned:</h4>
-                        <ul>
-                            <li>Database creation and management with sqlite3</li>
-                            <li>Video editing libraries such as moviepy, whisper, and ffmpeg</li>
-                            <li>Audio editing libraries such as pyannote and elevenlabs</li>
-                            <li>Working with multiple apis including google and meta</li>
-                            <li>How to build, manage, and merge a pipeline while working with others</li>
-                            
-                        </ul>
-                    </div>
-                </div>
-                <div class="experience-3">
-                    <div class="experience-3-title">
-                        <h2>Another Experience 2025</h2>
-                    </div>
-                    <div class="experience-3-info">
-                        <p>more about this experience</p>
-                        <p>even more about this experience</p>
-                        <ul>
-                            <li>what i learned</li>
-                            <li>more about what i learned</li>
-                            <li>even more about what i learned</li>
-                        </ul>
-                        <p>more reasons this is relevant</p>
                     </div>
                 </div>
             </div>
@@ -191,36 +297,99 @@
         <section id="projects">
             <div class="projects-title">
                 <h2 class="gradient-text">Projects</h2>
+                <p class="projects-subtitle">A few things I've built end to end.</p>
             </div>
-            <div class="project-1-container">
-                <div class="project-1-title">
-                    <h3>ClipRipper</h3>
-                </div>
-                <div class="project-1">
-                    <div class="project-1-left">
-                        <div class="project-1-left-img">
-                            <img src="project-1.jpg" alt="clipripper image">
-                        </div>
+            <div class="carousel">
+                <button class="carousel-arrow carousel-prev" aria-label="Previous project">&#10094;</button>
+                <div class="carousel-stage">
+                <article class="project-card" id="clipripper">
+                    <div class="project-image">
+                        <img src="project-1.jpg" alt="ClipRipper screenshot">
                     </div>
-                    <div class="project-1-right"></div>
+                    <div class="project-content">
+                        <h3>ClipRipper</h3>
+                        <p>A fully automated video generation and editing pipeline that transcribes, edits, and renders short-form clips end to end using AI and machine learning.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>MoviePy</span>
+                            <span>Whisper</span>
+                            <span>FFmpeg</span>
+                            <span>SQLite</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/tylerwcodes/clipripper" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+                <article class="project-card" id="dashflow">
+                    <div class="project-image">
+                        <img src="project-2.jpg" alt="DashFlow screenshot" onerror="this.onerror=null;this.src='project-1.jpg'">
+                    </div>
+                    <div class="project-content">
+                        <h3>DashFlow</h3>
+                        <p>A real-time analytics dashboard that pulls data from multiple APIs into a single automated reporting view, turning scattered metrics into one live picture.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>REST APIs</span>
+                            <span>pandas</span>
+                            <span>JavaScript</span>
+                            <span>Chart.js</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/tylerwcodes/dashflow" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
+                <article class="project-card" id="network-analyzer">
+                    <div class="project-image">
+                        <img src="project-3.jpg" alt="Network Analyzer screenshot" onerror="this.onerror=null;this.src='project-1.jpg'">
+                    </div>
+                    <div class="project-content">
+                        <h3>Network Analyzer</h3>
+                        <p>A network monitoring tool that captures and inspects live traffic to surface security insights, flag anomalies, and map activity across the network.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Scapy</span>
+                            <span>TCP/IP</span>
+                            <span>SQLite</span>
+                        </div>
+                        <a class="project-link" href="https://github.com/tylerwcodes/network-analyzer" target="_blank" rel="noopener">
+                            <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                            View on GitHub
+                        </a>
+                    </div>
+                </article>
                 </div>
+                <button class="carousel-arrow carousel-next" aria-label="Next project">&#10095;</button>
             </div>
-            <div class="project-2-container">
-                <div class="project-2-title">
-                    <h3>DashFlow</h3>
-                </div>
-                <div class="project-2">
-                    <div class="project-2-left"></div>
-                    <div class="project-2-right"></div>
-                </div>
+        </section>
+        <section id="about">
+            <div class="about-title">
+                <h2 class="gradient-text">About Me</h2>
+                <p class="about-subtitle">A little more about who I am and how I work.</p>
             </div>
-            <div class="project-3-container">
-                <div class="project-3-title">
-                    <h3>Network Analyzer</h3>
+            <div class="about-sections">
+                <div class="about-block">
+                    <h3>Early Life</h3>
+                    <p>[Write about your early life here.]</p>
                 </div>
-                <div class="project-3">
-                    <div class="project-3-left"></div>
-                    <div class="project-3-right"></div>
+                <div class="about-block">
+                    <h3>Competitive Gaming</h3>
+                    <p>[Write about your competitive gaming background here.]</p>
+                </div>
+                <div class="about-block">
+                    <h3>Cars</h3>
+                    <p>[Write about your interest in cars here.]</p>
+                </div>
+                <div class="about-block">
+                    <h3>Game Theory and Chess</h3>
+                    <p>[Write about game theory and chess here.]</p>
+                </div>
+                <div class="about-block">
+                    <h3>Software Development</h3>
+                    <p>[Write about your software development studies here.]</p>
                 </div>
             </div>
         </section>
@@ -228,62 +397,64 @@
     <footer>
         <div class="footer-container">
             <div class="footer-top">
-                <div class="footer-top-left">
-                    <div class="footer-sections">
-                        <div class="footer-sections-title">
-                            <h3>Sections</h3>
-                        </div>
-                        <div class="footer-sections-info">
-                            <ul>
-                                <li>Certifications</li>
-                                <li>Experience</li>
-                                <li>Projects</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-certs">
-                        <div class="footer-certs-title">
-                            <h3>Certifications</h3>
-                        </div>
-                        <div class="footer-certs-info">
-                            <ul>
-                                <li>CompTIA A+</li>
-                                <li>CompTIA Network+</li>
-                                <li>CompTIA Security+</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="footer-projects">
-                        <div class="footer-projects-title">
-                            <h3>Projects</h3>
-                        </div>
-                        <div class="footer-projects-info">
-                            <ul>
-                                <li>ClipRipper</li>
-                                <li>DashFlow</li>
-                                <li>Network Analyzer</li>
-                            </ul>
-                        </div>
+                <div class="footer-brand">
+                    <h3 class="gradient-text">Tylerwcodes.com</h3>
+                    <p>Automation developer &amp; IT professional building tools that ship.</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/tylerwcodes" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tylerweeks" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+                        </a>
+                        <a href="mailto:tylerwcodes@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                        </a>
                     </div>
                 </div>
-                <div class="footer-top-right">
-                    <div class="footer-contact">
-                        <div class="footer-contact-title">
-                            <h3>Contact</h3>
-                        </div>
-                        <div class="footer-contact-email">
-                            <p>email: tylerwcodes@gmail.com</p>
-                        </div>
-                        <div class="footer-contact-phone">
-                            phone: 256-527-8987
-                        </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Sections</h4>
+                        <ul>
+                            <li><a href="#certs">Certifications</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#experience">Experience</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#about">About Me</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Certifications</h4>
+                        <ul>
+                            <li>CompTIA A+</li>
+                            <li>CompTIA Network+</li>
+                            <li>CompTIA Security+</li>
+                            <li>Microsoft AZ-900</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Projects</h4>
+                        <ul>
+                            <li><a href="https://github.com/tylerwcodes/clipripper" target="_blank" rel="noopener">ClipRipper</a></li>
+                            <li><a href="https://github.com/tylerwcodes/dashflow" target="_blank" rel="noopener">DashFlow</a></li>
+                            <li><a href="https://github.com/tylerwcodes/network-analyzer" target="_blank" rel="noopener">Network Analyzer</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:tylerwcodes@gmail.com">tylerwcodes@gmail.com</a></li>
+                            <li><a href="tel:2565278987">256-527-8987</a></li>
+                            <li>Tallahassee, FL</li>
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <h3 class="gradient-text">Tylerwcodes.com</h3>
+                <p>&copy; 2026 Tyler Weeks. All rights reserved.</p>
             </div>
         </div>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
