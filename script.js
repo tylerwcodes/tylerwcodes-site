@@ -125,3 +125,49 @@ if (siteHeader) {
     { passive: true }
   );
 }
+
+// Scale "Hi, my name is" so its width matches the name below it
+const introLine = document.querySelector('.landing-left-t1 p:first-child');
+const nameLine = document.querySelector('.landing-left-t1 .name');
+
+if (introLine && nameLine) {
+  const textWidth = (el) => {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    return range.getBoundingClientRect().width;
+  };
+
+  const fitIntro = () => {
+    introLine.style.fontSize = ''; // reset to the CSS size before measuring
+    const introW = textWidth(introLine);
+    const nameW = textWidth(nameLine);
+    if (introW > 0) {
+      const size = parseFloat(getComputedStyle(introLine).fontSize);
+      introLine.style.fontSize = `${size * (nameW / introW)}px`;
+    }
+  };
+
+  fitIntro();
+  window.addEventListener('resize', fitIntro);
+  window.addEventListener('load', fitIntro);
+}
+
+// On mobile, move the hero social links beneath the image
+const heroSocials = document.querySelector('.landing-socials');
+const heroLeft = document.querySelector('.landing-left');
+const heroRight = document.querySelector('.landing-right');
+
+if (heroSocials && heroLeft && heroRight) {
+  const mobileMq = window.matchMedia('(max-width: 768px)');
+
+  const placeSocials = () => {
+    if (mobileMq.matches) {
+      heroRight.appendChild(heroSocials); // under the image
+    } else {
+      heroLeft.appendChild(heroSocials); // under the text
+    }
+  };
+
+  placeSocials();
+  mobileMq.addEventListener('change', placeSocials);
+}
