@@ -1,0 +1,6 @@
+# Local tooling and OS files — keep out of the repo
+.claude/
+.DS_Store
+
+# Scratch/testing files
+testing/
