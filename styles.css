@@ -707,7 +707,7 @@ main #projects {
 
 .carousel-stage {
     position: relative;
-    height: 380px;
+    height: clamp(450px, 65vh, 850px);
     overflow: hidden;
 }
 
@@ -745,12 +745,12 @@ main #projects {
 
 .project-card {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
-    width: min(90%, 720px);
-    height: 100%;
+    inset: 0;
+    margin: auto;
+    width: min(92%, 960px);
+    aspect-ratio: 16 / 9;
+    height: auto;
+    max-height: 100%;
     display: flex;
     background-color: rgb(33, 40, 47);
     border: 1px solid rgba(143, 221, 255, 0.15);
@@ -1117,12 +1117,14 @@ footer::before {
     }
 
     .carousel-stage {
-        height: 540px;
+        height: 640px;
     }
 
     .project-card {
         flex-direction: column;
         width: min(92%, 420px);
+        aspect-ratio: auto;
+        height: 100%;
     }
 
     .project-image,
