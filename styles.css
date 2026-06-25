@@ -409,24 +409,25 @@ body main #landing {
 }
 
 .skills-container {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 360px));
     justify-content: center;
-    align-items: stretch;
-    gap: 2rem;
+    column-gap: 2rem;
+    row-gap: 2rem;
     width: 100%;
 }
 
 .skills-container > div {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    /* span the 5 internal rows (title, description, proficiency, tags, projects)
+       and adopt the container's row tracks so every card's rows line up */
+    grid-row: span 5;
+    display: grid;
+    grid-template-rows: subgrid;
+    row-gap: 0;
     background-color: rgb(33, 40, 47);
     border-radius: 18px;
     border: 1px solid rgba(143, 221, 255, 0.15);
-    flex: 1 1 300px;
-    max-width: 360px;
-    min-height: 260px;
     overflow: hidden;
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
@@ -449,12 +450,13 @@ body main #landing {
 }
 
 .skills-container > div .skill-info {
+    /* occupy the 4 rows beneath the title and share their tracks, so the
+       description / proficiency / tags / projects rows align across all cards */
+    grid-row: 2 / span 4;
+    display: grid;
+    grid-template-rows: subgrid;
+    row-gap: 1.25rem;
     padding: 1.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 1.25rem;
-    flex: 1;
     text-align: left;
 }
 
