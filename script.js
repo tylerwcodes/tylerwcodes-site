@@ -26,10 +26,15 @@ if (hamburger && headerCollapse) {
 }
 
 // Typing animation for the hero subtitle word
+const typedArticle = document.getElementById('typed-article');
 const typedWord = document.getElementById('typed-word');
 
-if (typedWord) {
-  const words = ['Automation Developer', 'IT Professional'];
+if (typedArticle && typedWord) {
+  // the article types along with the word but keeps the grey color
+  const words = [
+    { article: 'a ', word: 'Full Stack Developer' },
+    { article: 'an ', word: 'IT Professional' },
+  ];
   const typingSpeed = 100;        // ms per character typed
   const deletingSpeed = 50;       // ms per character deleted
   const pauseAfterTyping = 1500;  // ms to hold a full word
@@ -41,13 +46,16 @@ if (typedWord) {
 
   function tick() {
     const current = words[wordIndex];
+    const full = current.article + current.word;
 
     charIndex += isDeleting ? -1 : 1;
-    typedWord.textContent = current.slice(0, charIndex);
+    const typed = full.slice(0, charIndex);
+    typedArticle.textContent = typed.slice(0, current.article.length);
+    typedWord.textContent = typed.slice(current.article.length);
 
     let delay = isDeleting ? deletingSpeed : typingSpeed;
 
-    if (!isDeleting && charIndex === current.length) {
+    if (!isDeleting && charIndex === full.length) {
       delay = pauseAfterTyping;
       isDeleting = true;
     } else if (isDeleting && charIndex === 0) {

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles.css">
+    <title>ClipRipper — Tylerwcodes</title>
+</head>
+<body class="project-page">
+    <header>
+        <div class="header-left">
+            <a class="gradient-text" href="../index.html">Tylerwcodes.com</a>
+        </div>
+        <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="header-collapse">
+            <div class="header-middle">
+                <ul>
+                    <li><a href="../index.html#certs">Certifications</a></li>
+                    <li><a href="../index.html#skills">Skills</a></li>
+                    <li><a href="../index.html#experience">Experience</a></li>
+                    <li><a href="../index.html#projects">Projects</a></li>
+                    <li><a href="../index.html#about">About Me</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="header-right">
+            <a class="header-contact" href="../CodingResume.pdf" target="_blank" rel="noopener">Resume</a>
+        </div>
+        <div class="menu-overlay"></div>
+    </header>
+    <main>
+        <section class="project-hero">
+            <a class="back-link" href="../index.html#projects">&#8592; Back to all projects</a>
+            <h1 class="gradient-text">ClipRipper</h1>
+            <p class="project-tagline">A fully automated AI pipeline that transcribes, edits, and renders short-form clips end to end.</p>
+            <div class="project-tags">
+                <span>Python</span>
+                <span>FFmpeg</span>
+                <span>WhisperX</span>
+                <span>SQLite3</span>
+                <span>ElevenLabs</span>
+                <span>HuggingFace</span>
+                <span>API</span>
+            </div>
+            <div class="project-links">
+                <a class="project-link" href="https://github.com/tylerwcodes/clipripper" target="_blank" rel="noopener">
+                    <svg viewBox="0 0 16 16" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                    View on GitHub
+                </a>
+            </div>
+        </section>
+        <section class="project-showcase">
+            <img src="../imgs/project-1.png" alt="ClipRipper screenshot">
+        </section>
+        <section class="project-detail">
+            <div class="detail-block wide">
+                <h2>Overview</h2>
+                <p>ClipRipper is a fully automated video generation and editing pipeline that transcribes, edits, and renders short-form clips end to end using AI and machine learning. I built it during summer 2025 working as a Python Developer, with the goal of taking raw footage all the way to a finished, rendered clip without a human sitting in an editor for every step.</p>
+                <p>The pipeline is orchestrated in Python and leans on a stack of specialized tools for each stage: WhisperX handles speech transcription, moviepy and FFmpeg handle programmatic video editing and rendering, and pyannote and ElevenLabs cover the audio side, from analyzing speech to generating AI voice audio. Machine learning models come through the HuggingFace ecosystem, a SQLite3 database manages the pipeline's data, and integrations with multiple external APIs, including Google and Meta, connect the system to the outside world.</p>
+                <p>Just as important as the tech, this project was a lesson in building software with other people. I learned how to design, manage, and merge a shared pipeline while collaborating with teammates, how to structure a database with sqlite3 to keep every stage in sync, and how to wire together video, audio, and API tooling into one reliable, hands-off system.</p>
+            </div>
+            <div class="detail-block">
+                <h2>Key Features</h2>
+                <ul>
+                    <li><strong>End-to-end automation.</strong> The entire flow from source video to rendered short-form clip runs as one automated pipeline, with no manual editing required between stages.</li>
+                    <li><strong>AI transcription with WhisperX.</strong> WhisperX converts speech to text, giving the pipeline a machine-readable understanding of the footage that downstream editing stages can work from.</li>
+                    <li><strong>Intelligent audio processing.</strong> pyannote powers audio analysis on the editing side, while ElevenLabs generates AI voice audio, so the pipeline can handle both the source sound and synthesized speech.</li>
+                    <li><strong>Programmatic video editing.</strong> moviepy and FFmpeg cut, assemble, and render clips entirely in code, turning editing decisions into repeatable pipeline steps.</li>
+                    <li><strong>SQLite3-backed pipeline state.</strong> A SQLite3 database I designed and managed keeps track of the pipeline's data so every stage stays in sync as clips move through the system.</li>
+                    <li><strong>Multi-API integration.</strong> The pipeline works with multiple external APIs, including Google and Meta, to connect the automated workflow to outside services.</li>
+                </ul>
+            </div>
+            <div class="detail-block">
+                <h2>How It Works</h2>
+                <ol>
+                    <li>A source video enters the pipeline, which is orchestrated end to end in Python.</li>
+                    <li>WhisperX transcribes the audio into text, using machine learning models from the HuggingFace ecosystem.</li>
+                    <li>pyannote analyzes the audio, and ElevenLabs generates AI voice audio where the clip calls for it.</li>
+                    <li>moviepy and FFmpeg programmatically edit the footage, cutting and assembling the short-form clip.</li>
+                    <li>A SQLite3 database tracks the pipeline's data as clips move between stages.</li>
+                    <li>FFmpeg renders the finished clip, and external APIs such as Google and Meta connect the output to outside services.</li>
+                </ol>
+            </div>
+            <div class="detail-block wide">
+                <h2>Tech Stack</h2>
+                <div class="stack-list">
+                    <div class="stack-item">
+                        <span class="stack-name">Python</span>
+                        <span class="stack-role">Core language that orchestrates the entire pipeline and glues every stage together.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">FFmpeg</span>
+                        <span class="stack-role">Handles video processing and rendering of the final short-form clips.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">WhisperX</span>
+                        <span class="stack-role">AI speech-to-text transcription of the source footage.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">moviepy</span>
+                        <span class="stack-role">Programmatic video editing for cutting and assembling clips in code.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">pyannote</span>
+                        <span class="stack-role">Audio analysis library used on the audio editing side of the pipeline.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">ElevenLabs</span>
+                        <span class="stack-role">AI voice generation for the pipeline's audio.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">HuggingFace</span>
+                        <span class="stack-role">Source of the machine learning models the pipeline runs on.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">SQLite3</span>
+                        <span class="stack-role">Database that stores and manages the pipeline's data across stages.</span>
+                    </div>
+                    <div class="stack-item">
+                        <span class="stack-name">Google &amp; Meta APIs</span>
+                        <span class="stack-role">External API integrations connecting the pipeline to outside services.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <nav class="project-pagination">
+            <a class="pagination-link prev" href="network-analyzer.html">
+                <span class="pagination-label">&#8592; Previous Project</span>
+                <span class="pagination-name">Network Analyzer</span>
+            </a>
+            <a class="pagination-link next" href="dashflow.html">
+                <span class="pagination-label">Next Project &#8594;</span>
+                <span class="pagination-name">DashFlow</span>
+            </a>
+        </nav>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <h3 class="gradient-text">Tylerwcodes.com</h3>
+                    <p>Full stack developer &amp; IT professional building tools that ship.</p>
+                    <div class="footer-socials">
+                        <a href="https://github.com/tylerwcodes" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 16 16" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
+                        </a>
+                        <a href="https://www.linkedin.com/in/tylerdweeks" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 110-4.13 2.06 2.06 0 010 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"></path></svg>
+                        </a>
+                        <a href="mailto:tylerwcodes@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"></path></svg>
+                        </a>
+                        <a href="https://leetcode.com/u/tylerwcodes" target="_blank" rel="noopener" aria-label="LeetCode">
+                            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Sections</h4>
+                        <ul>
+                            <li><a href="../index.html#certs">Certifications</a></li>
+                            <li><a href="../index.html#skills">Skills</a></li>
+                            <li><a href="../index.html#experience">Experience</a></li>
+                            <li><a href="../index.html#projects">Projects</a></li>
+                            <li><a href="../index.html#about">About Me</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Certifications</h4>
+                        <ul>
+                            <li>CompTIA A+</li>
+                            <li>CompTIA Network+</li>
+                            <li>CompTIA Security+</li>
+                            <li>Microsoft AZ-900</li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Projects</h4>
+                        <ul>
+                            <li><a href="clipripper.html">ClipRipper</a></li>
+                            <li><a href="dashflow.html">DashFlow</a></li>
+                            <li><a href="network-analyzer.html">Network Analyzer</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:tylerwcodes@gmail.com">tylerwcodes@gmail.com</a></li>
+                            <li><a href="tel:2565278987">256-527-8987</a></li>
+                            <li>Tallahassee, FL</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tyler Weeks. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../script.js"></script>
+</body>
+</html>

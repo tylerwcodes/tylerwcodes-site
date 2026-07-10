@@ -858,6 +858,206 @@ main #projects {
     color: rgb(0, 0, 37);
 }
 
+.project-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.project-link.secondary {
+    background: none;
+    border: 1px solid rgba(143, 221, 255, 0.3);
+    color: var(--bright-blue);
+}
+
+.project-link.secondary:hover {
+    background: linear-gradient(90deg, rgb(0, 251, 255), rgb(0, 115, 255));
+    border-color: transparent;
+    color: rgb(0, 0, 37);
+    opacity: 1;
+}
+
+/* Project detail pages */
+
+.project-page main {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 0 clamp(2rem, 5vw, 6rem) 4rem;
+}
+
+.project-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.25rem;
+    padding-top: 4rem;
+}
+
+.back-link {
+    color: var(--greyed-out);
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.back-link:hover {
+    color: var(--bright-blue);
+}
+
+.project-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.1;
+}
+
+.project-tagline {
+    max-width: 46rem;
+    color: var(--greyed-out);
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    line-height: 1.6;
+}
+
+.project-hero .project-tags {
+    justify-content: center;
+}
+
+.project-showcase {
+    display: flex;
+    justify-content: center;
+}
+
+.project-showcase img {
+    width: min(100%, 960px);
+    border: 1px solid rgba(143, 221, 255, 0.15);
+    border-radius: 18px;
+}
+
+.project-detail {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.detail-block {
+    background-color: rgb(15, 16, 30);
+    border: 1px solid rgba(143, 221, 255, 0.15);
+    border-radius: 18px;
+    padding: 1.75rem;
+    text-align: left;
+}
+
+.detail-block.wide {
+    grid-column: 1 / -1;
+}
+
+.detail-block h2 {
+    color: var(--bright-blue);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+}
+
+.detail-block p {
+    color: var(--greyed-out);
+    line-height: 1.7;
+}
+
+.detail-block p + p {
+    margin-top: 1rem;
+}
+
+.detail-block ul,
+.detail-block ol {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    list-style-position: inside;
+    color: var(--greyed-out);
+    line-height: 1.7;
+}
+
+.detail-block li strong {
+    color: white;
+    font-weight: bold;
+}
+
+.stack-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.stack-item {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0.5rem 0.75rem;
+}
+
+.stack-name {
+    flex-shrink: 0;
+    font-family: "Courier New", monospace;
+    font-size: 0.8rem;
+    color: var(--bright-blue);
+    background-color: rgba(143, 221, 255, 0.08);
+    border: 1px solid rgba(143, 221, 255, 0.25);
+    border-radius: 8px;
+    padding: 0.3rem 0.6rem;
+}
+
+.stack-role {
+    color: var(--greyed-out);
+    line-height: 1.6;
+}
+
+/* prev / next navigation between project pages */
+.project-pagination {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.pagination-link {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background-color: rgb(15, 16, 30);
+    border: 1px solid rgba(143, 221, 255, 0.15);
+    border-radius: 14px;
+    padding: 1rem 1.5rem;
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.pagination-link:hover {
+    transform: translateY(-4px);
+    border-color: rgba(143, 221, 255, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 115, 255, 0.25);
+}
+
+.pagination-link.next {
+    margin-left: auto;
+    text-align: right;
+}
+
+.pagination-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--greyed-out);
+}
+
+.pagination-name {
+    color: var(--bright-blue);
+    font-weight: bold;
+}
+
 
 #about {
     display: flex;
@@ -1143,5 +1343,14 @@ footer::before {
     .project-card.prev,
     .project-card.next {
         opacity: 0;
+    }
+
+    .project-pagination {
+        flex-direction: column;
+    }
+
+    .pagination-link.next {
+        margin-left: 0;
+        text-align: left;
     }
 }
