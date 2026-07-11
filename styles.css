@@ -318,7 +318,9 @@ body main #landing {
     display: flex;
     width: max-content;
     gap: 1.5rem;
-    animation: cert-slide 30s linear infinite;
+    /* 60s: the track is twice as long as before, so double the duration
+       keeps the same visual speed */
+    animation: cert-slide 60s linear infinite;
 }
 
 /* pause on hover so people can read a card */
