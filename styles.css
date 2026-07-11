@@ -1067,16 +1067,11 @@ main #projects {
     display: grid;
     grid-template-columns: 5fr 7fr;
     gap: 2rem;
-    margin-bottom: 16rem;
+    margin-bottom: 4rem;
     background-color: rgb(24, 34, 47);
     border: 1px solid rgba(143, 221, 255, 0.15);
     border-radius: 18px;
     padding: 2rem;
-}
-
-/* variant pane with a slightly darker background */
-.experience-detail.darker {
-    background-color: rgb(17, 25, 36);
 }
 
 .experience-detail:last-child {
@@ -1086,6 +1081,11 @@ main #projects {
 /* stretch the single card to match the timeline column's height */
 .experience-detail-left {
     grid-auto-rows: 1fr;
+}
+
+/* pane variant for a job with no timeline: the card fills the full width */
+.experience-detail.single {
+    grid-template-columns: 1fr;
 }
 
 /* mirrored variant: timeline on the left, card on the right
@@ -1165,10 +1165,6 @@ main #projects {
     z-index: 1;
 }
 
-.experience-detail.darker .timeline-item::before {
-    border-color: rgb(17, 25, 36);
-}
-
 .timeline-item:nth-child(even)::before {
     right: auto;
     left: -9px;
@@ -1235,8 +1231,8 @@ main #projects {
 }
 
 .about-sections {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr));
     gap: 1.5rem;
     text-align: left;
 }
@@ -1246,6 +1242,13 @@ main #projects {
     border: 1px solid rgba(143, 221, 255, 0.15);
     border-radius: 18px;
     padding: 1.75rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.about-block:hover {
+    transform: translateY(-6px);
+    border-color: rgba(143, 221, 255, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 115, 255, 0.25);
 }
 
 .about-block h3 {
@@ -1401,7 +1404,7 @@ footer::before {
     .experience-detail,
     .experience-detail.reverse {
         grid-template-columns: 1fr;
-        margin-bottom: 10rem;
+        margin-bottom: 2.5rem;
     }
 
     .experience-detail.reverse .experience-timeline {
