@@ -1058,6 +1058,159 @@ main #projects {
     font-weight: bold;
 }
 
+/* Expanded experience block (inside the index #experience section):
+   old-style card on the left, month timeline on the right */
+
+.experience-detail {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 2rem;
+    margin-bottom: 16rem;
+    background-color: rgb(24, 34, 47);
+    border: 1px solid rgba(143, 221, 255, 0.15);
+    border-radius: 18px;
+    padding: 2rem;
+}
+
+/* variant pane with a slightly darker background */
+.experience-detail.darker {
+    background-color: rgb(17, 25, 36);
+}
+
+.experience-detail:last-child {
+    margin-bottom: 0;
+}
+
+/* stretch the single card to match the timeline column's height */
+.experience-detail-left {
+    grid-auto-rows: 1fr;
+}
+
+/* mirrored variant: timeline on the left, card on the right
+   (source order keeps the card first so mobile stacks card-on-top) */
+.experience-detail.reverse {
+    grid-template-columns: 7fr 5fr;
+}
+
+.experience-detail.reverse .experience-timeline {
+    order: -1;
+}
+
+.experience-timeline {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+}
+
+.experience-timeline > h4 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    margin-bottom: 1.5rem;
+}
+
+/* flex column so a timeline shorter than its neighbor stretches,
+   spreading the entries along the full spine */
+.timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 0.5rem 0;
+}
+
+/* the central gradient spine */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    transform: translateX(-50%);
+    border-radius: 999px;
+    background: linear-gradient(180deg, rgb(0, 251, 255), rgb(0, 115, 255));
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    padding: 1rem 3rem 1rem 0;
+    /* the universal overflow-x guard would clip the dot sitting on the spine */
+    overflow: visible;
+    text-align: left;
+}
+
+.timeline-item:nth-child(even) {
+    margin-left: 50%;
+    padding: 1rem 0 1rem 3rem;
+}
+
+/* the dot on the spine — the universal box-sizing reset skips
+   pseudo-elements, so border-box is declared here explicitly */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    top: 2.25rem;
+    right: -9px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(90deg, rgb(0, 251, 255), rgb(0, 115, 255));
+    /* ring matches the pane background to cut out from the spine */
+    border: 3px solid rgb(24, 34, 47);
+    z-index: 1;
+}
+
+.experience-detail.darker .timeline-item::before {
+    border-color: rgb(17, 25, 36);
+}
+
+.timeline-item:nth-child(even)::before {
+    right: auto;
+    left: -9px;
+}
+
+.timeline-card {
+    background-color: black;
+    border: 1px solid rgba(143, 221, 255, 0.15);
+    border-radius: 18px;
+    padding: 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(143, 221, 255, 0.5);
+    box-shadow: 0 12px 30px rgba(0, 115, 255, 0.25);
+}
+
+.timeline-step {
+    display: inline-block;
+    font-family: "Courier New", monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    color: var(--bright-blue);
+    background-color: rgba(143, 221, 255, 0.08);
+    border: 1px solid rgba(143, 221, 255, 0.25);
+    border-radius: 8px;
+    padding: 0.25rem 0.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.timeline-card h3 {
+    color: white;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-card p {
+    color: var(--greyed-out);
+    line-height: 1.7;
+}
+
+
 
 #about {
     display: flex;
@@ -1240,6 +1393,20 @@ footer::before {
     }
 }
 
+@media only screen and (max-width: 1024px) {
+    /* stack the expanded experience blocks: card on top, timeline below
+       (.reverse listed too — its two-class selector outweighs .experience-detail) */
+    .experience-detail,
+    .experience-detail.reverse {
+        grid-template-columns: 1fr;
+        margin-bottom: 10rem;
+    }
+
+    .experience-detail.reverse .experience-timeline {
+        order: 0;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .header-left {
         display: none;
@@ -1352,5 +1519,25 @@ footer::before {
     .pagination-link.next {
         margin-left: 0;
         text-align: left;
+    }
+
+    /* timeline collapses to a single left rail;
+       left 7px + 4px width centers the rail on the 18px dot at left 0 */
+    .timeline::before {
+        left: 7px;
+        transform: none;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(even) {
+        width: 100%;
+        margin-left: 0;
+        padding: 1rem 0 1rem 2.5rem;
+    }
+
+    .timeline-item::before,
+    .timeline-item:nth-child(even)::before {
+        right: auto;
+        left: 0;
     }
 }
