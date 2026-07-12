@@ -410,6 +410,39 @@ body main #landing {
     margin-bottom: 3rem;
 }
 
+/* skill tab selector — hidden while the grid has room for the cards;
+   the 1024px media query below swaps the grid for these tabs */
+.skills-tabs {
+    display: none;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.skills-tab {
+    font-family: inherit;
+    font-size: 0.85rem;
+    color: var(--bright-blue);
+    background-color: rgba(143, 221, 255, 0.08);
+    border: 1px solid rgba(143, 221, 255, 0.3);
+    border-radius: 999px;
+    padding: 0.4rem 0.9rem;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.skills-tab:hover {
+    color: white;
+    border-color: rgba(143, 221, 255, 0.6);
+}
+
+.skills-tab.active {
+    color: rgb(0, 0, 37);
+    font-weight: bold;
+    background: linear-gradient(90deg, rgb(0, 251, 255), rgb(0, 115, 255));
+    border-color: transparent;
+}
+
 .skills-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 360px));
@@ -1399,6 +1432,21 @@ footer::before {
 }
 
 @media only screen and (max-width: 1024px) {
+    /* the skills grid is down to two columns here, which wraps the seven
+       cards past three rows — swap it for the tab selector, one card shown
+       at a time (.tabbed is added by JS, so the grid survives without it) */
+    .skills-tabs {
+        display: flex;
+    }
+
+    .skills-container.tabbed > .skill {
+        display: none;
+    }
+
+    .skills-container.tabbed > .skill.tab-active {
+        display: grid;
+    }
+
     /* stack the expanded experience blocks: card on top, timeline below
        (.reverse listed too — its two-class selector outweighs .experience-detail) */
     .experience-detail,

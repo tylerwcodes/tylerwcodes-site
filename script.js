@@ -108,6 +108,65 @@ if (carousel) {
   renderCarousel();
 }
 
+// Skills tab selector — on narrow screens the grid would run past three
+// rows, so CSS swaps it for these tabs showing one card at a time
+const skillsContainer = document.querySelector('.skills-container');
+
+if (skillsContainer) {
+  const skillCards = Array.from(skillsContainer.querySelectorAll('.skill'));
+
+  const tabBar = document.createElement('div');
+  tabBar.className = 'skills-tabs';
+  tabBar.setAttribute('role', 'tablist');
+  tabBar.setAttribute('aria-label', 'Skills');
+
+  const tabs = skillCards.map((card, i) => {
+    const title = card.querySelector('.skill-title h4');
+    const tab = document.createElement('button');
+    tab.type = 'button';
+    tab.className = 'skills-tab';
+    tab.id = `skills-tab-${i}`;
+    tab.textContent = title ? title.textContent : `Skill ${i + 1}`;
+    tab.setAttribute('role', 'tab');
+    card.id = card.id || `skills-panel-${i}`;
+    card.setAttribute('role', 'tabpanel');
+    card.setAttribute('aria-labelledby', tab.id);
+    tab.setAttribute('aria-controls', card.id);
+    tabBar.appendChild(tab);
+    return tab;
+  });
+
+  const activateSkill = (index) => {
+    skillCards.forEach((card, i) => card.classList.toggle('tab-active', i === index));
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+      tab.setAttribute('aria-selected', String(i === index));
+      tab.tabIndex = i === index ? 0 : -1;
+    });
+  };
+
+  tabs.forEach((tab, i) => {
+    tab.addEventListener('click', () => activateSkill(i));
+  });
+
+  // arrow keys move between tabs, per the roving-focus tabs pattern
+  tabBar.addEventListener('keydown', (e) => {
+    const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (!dir) return;
+    const current = tabs.indexOf(document.activeElement);
+    if (current === -1) return;
+    const next = (current + dir + tabs.length) % tabs.length;
+    activateSkill(next);
+    tabs[next].focus();
+    e.preventDefault();
+  });
+
+  skillsContainer.before(tabBar);
+  // the CSS only hides cards inside .tabbed, so without JS the grid remains
+  skillsContainer.classList.add('tabbed');
+  activateSkill(0);
+}
+
 // Hide the header on scroll down, reveal it on scroll up
 const siteHeader = document.querySelector('header');
 
