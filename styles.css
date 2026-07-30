@@ -1270,6 +1270,21 @@ main #projects {
     text-align: left;
 }
 
+/* single-card variant: one centered paragraph with a readable line length */
+.about-sections.about-single {
+    display: block;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.about-single .about-block {
+    padding: 2.25rem 2.5rem;
+}
+
+.about-single .about-block p {
+    font-size: 1.05rem;
+}
+
 .about-block {
     background-color: black;
     border: 1px solid rgba(143, 221, 255, 0.15);
