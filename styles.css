@@ -1111,9 +1111,9 @@ main #projects {
     margin-bottom: 0;
 }
 
-/* stretch the single card to match the timeline column's height */
+/* size the card to its own content and center it vertically beside the timeline */
 .experience-detail-left {
-    grid-auto-rows: 1fr;
+    align-self: center;
 }
 
 /* pane variant for a job with no timeline: the card fills the full width */
